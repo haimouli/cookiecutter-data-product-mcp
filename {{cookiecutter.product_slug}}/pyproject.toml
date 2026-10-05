@@ -1,0 +1,50 @@
+[project]
+name = "{{cookiecutter.product_slug}}"
+version = "0.1.0"
+description = "MCP Server for {{cookiecutter.product_name}} core data product"
+readme = "README.md"
+requires-python = ">={{cookiecutter.python_version}}"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.31.0",
+    "pydantic>=2.12.0",
+    "pydantic-settings>=2.6.0",
+    "fastmcp>=4.0.11",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.3.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=6.0.0",
+    "httpx>=0.27.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+omit = ["*/__init__.py"]
+
+[tool.coverage.report]
+show_missing = true
+omit = ["*/__init__.py"]
+fail_under = 95
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]

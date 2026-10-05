@@ -1,0 +1,9 @@
+{
+  "product_name": "Customer 360",
+  "product_slug": "product-customer-360-mcp",
+  "domain_team": "Team-Customer-Domain",
+  "tools_prefix": "cust360_",
+  "auth_scope": "data:customer:read",
+  "owner_email": "data-platform-leads@organization.net",
+  "python_version": "3.11"
+}
